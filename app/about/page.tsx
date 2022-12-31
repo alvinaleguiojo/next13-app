@@ -2,7 +2,7 @@ import supabase from "../../utils/supabase";
 export const dynamic = "force-dynamic";
 
 async function getData() {
-  const { data } = await supabase.from("users").select("firstname");
+  const { data } = await supabase.from("users").select();
   return { data };
 }
 
