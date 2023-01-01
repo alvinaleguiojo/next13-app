@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
-export const dynamic = "force-dynamic";
-import { Player } from "video-react";
+// export const dynamic = "force-dynamic";
+import { Player, LoadingSpinner } from "video-react";
 
 export default function VideoPlayer() {
   const pathname = usePathname();
@@ -19,9 +19,11 @@ export default function VideoPlayer() {
     // />
     <Player
       playsInline
-      poster="/assets/poster.png"
+      // poster="/assets/poster.png"
       src={`/api/videos?videoId=${truncatedPath}`}
-    />
+    >
+      <LoadingSpinner />
+    </Player>
     // <ReactPlayer url={`/api/videos?videoId=${truncatedPath}`}/>
   );
 }
