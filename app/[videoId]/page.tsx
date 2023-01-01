@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 export const dynamic = "force-dynamic";
-import ReactPlayer from "react-player";
+import { Player } from "video-react";
 
 export default function VideoPlayer() {
   const pathname = usePathname();
@@ -17,6 +17,11 @@ export default function VideoPlayer() {
     //   autoPlay
     //   id="video-player"
     // />
-    <ReactPlayer url={`/api/videos?videoId=${truncatedPath}`}/>
+    <Player
+      playsInline
+      poster="/assets/poster.png"
+      src={`/api/videos?videoId=${truncatedPath}`}
+    />
+    // <ReactPlayer url={`/api/videos?videoId=${truncatedPath}`}/>
   );
 }
